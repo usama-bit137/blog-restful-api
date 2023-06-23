@@ -21,5 +21,7 @@ mongoose
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
-  console.log(`Server running on port: ${port}`);
+  console.log(
+    `Server started at ${new Date().toJSON().slice(11, -2)} on port: ${port}`
+  );
 });

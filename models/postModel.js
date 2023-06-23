@@ -19,14 +19,24 @@ const postSchema = new mongoose.Schema(
       type: Date,
       default: Date.now(), // I think this creates a date instace of date from when the server runs
     },
-    edittedAt: {
-      type: Date,
+    likes: {
+      type: Number,
+      default: 0,
     },
+    comments: [
+      {
+        username: { type: String },
+        comment: { type: String },
+      },
+    ],
     icon: {
       type: String,
     },
     images: {
       type: [String],
+    },
+    edittedAt: {
+      type: Date,
     },
   },
   {

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const postSchema = new mongoose.Schema(
   {
-    posterName: {
+    author: {
       type: String,
       default: 'Unknown',
       required: [true, 'A post requires and author'],
@@ -14,6 +14,9 @@ const postSchema = new mongoose.Schema(
     creationDate: {
       type: Date,
       default: Date.now(),
+    },
+    edittedAt: {
+      type: Date,
     },
     icon: {
       type: String,

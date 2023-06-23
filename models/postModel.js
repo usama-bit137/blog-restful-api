@@ -7,13 +7,17 @@ const postSchema = new mongoose.Schema(
       default: 'Unknown',
       required: [true, 'A post requires and author'],
     },
+    title: {
+      type: String,
+      required: [true, 'A post requires text content.'],
+    },
     bodyText: {
       type: String,
-      required: [true, 'A post requires body text'],
+      required: [true, 'A post requires text content.'],
     },
     creationDate: {
       type: Date,
-      default: Date.now(),
+      default: Date.now(), // I think this creates a date instace of date from when the server runs
     },
     edittedAt: {
       type: Date,

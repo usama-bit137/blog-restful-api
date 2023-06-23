@@ -1,8 +1,16 @@
 const Post = require('../models/postModel');
+const APIFeatures = require('../utils/APIFeatures');
 
 exports.getAllPosts = async (req, res, next) => {
-  const posts = await Post.find();
-  res.status(500).json({
+  const features = new APIFeatures(Post.find(), req.query)
+    .filter()
+    .sort()
+    .limitFields()
+    .paginate();
+
+  const posts = await features.query;
+
+  res.status(200).json({
     status: 'success',
     posts: {
       posts,
@@ -21,6 +29,7 @@ exports.getPost = async (req, res, next) => {
 exports.createPost = async (req, res, next) => {
   const post = await Post.create({
     author: req.body.author,
+    title: req.body.title,
     bodyText: req.body.bodyText,
   });
 

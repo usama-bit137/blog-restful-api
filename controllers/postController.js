@@ -20,12 +20,33 @@ exports.getPost = async (req, res, next) => {
 
 exports.createPost = async (req, res, next) => {
   const post = await Post.create({
-    posterName: req.body.posterName,
+    author: req.body.author,
     bodyText: req.body.bodyText,
   });
 
   res.status(201).send({
     status: 'success',
     post,
+  });
+};
+
+exports.updatePost = async (req, res, next) => {
+  const post = await Post.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidator: true,
+  });
+
+  res.status(200).json({
+    status: 'success',
+    post,
+  });
+};
+
+exports.deletePost = async (req, res, next) => {
+  await Post.findByIdAndDelete(req.params.id);
+
+  res.status(204).json({
+    status: 'success',
+    data: null,
   });
 };

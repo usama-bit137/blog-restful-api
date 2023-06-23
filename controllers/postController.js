@@ -31,6 +31,8 @@ exports.createPost = async (req, res, next) => {
     author: req.body.author,
     title: req.body.title,
     bodyText: req.body.bodyText,
+    comments: req.body.comments,
+    likes: req.body.likes,
   });
 
   res.status(201).send({

@@ -1,0 +1,32 @@
+.header {
+  text-align: center;
+  background-color: var(--oxford-blue);
+  font-family: 'Albert Sans', sans-serif;
+}
+
+.header--title {
+  color: var(--platinum);
+  padding: 20px 0;
+}
+
+.header--link-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 10px 0px;
+  background-color: var(--black);
+}
+
+.heading--bullet {
+  list-style-type: none;
+}
+
+.heading--link {
+  text-decoration: none;
+  color: white;
+}
+
+.heading--link:hover {
+  text-decoration: underline;
+  color: var(--orange);
+}

@@ -17,7 +17,7 @@ const postSchema = new mongoose.Schema(
     },
     creationDate: {
       type: Date,
-      default: Date.now(), // I think this creates a date instace of date from when the server runs
+      default: Date.now,
     },
     likes: {
       type: Number,

@@ -13,8 +13,8 @@
   display: flex;
   justify-content: center;
   gap: 30px;
-  padding: 10px 0px;
-  background-color: var(--black);
+  padding: 2px 0px;
+  background-color: var(--orange);
 }
 
 .heading--bullet {
@@ -23,10 +23,10 @@
 
 .heading--link {
   text-decoration: none;
-  color: white;
+  color: var(--white);
 }
 
 .heading--link:hover {
   text-decoration: underline;
-  color: var(--orange);
+  color: var(--oxford-blue);
 }

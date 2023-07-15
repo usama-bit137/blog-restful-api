@@ -1,0 +1,26 @@
+.blog--container {
+  margin: 0 auto;
+  padding: 30px 10px;
+  width: 70%;
+  border-bottom: 1px solid var(--platinum);
+}
+
+.blog--title {
+  color: var(--oxford-blue);
+  font-family: 'Albert Sans', sans-serif;
+}
+
+.blog--preview {
+  text-decoration: none;
+  color: var(--oxford-blue);
+  font-family: 'Barlow Light', sans-serif;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 4;
+  /* border: 1px solid red; */
+  margin-top: 10px;
+  font-family: 'Barlow Light', sans-serif;
+  color: var(--oxford-blue);
+}

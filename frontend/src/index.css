@@ -5,6 +5,7 @@
   --platinum: #e5e5e5;
   --white: #fff;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -13,4 +14,9 @@
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@font-face {
+  font-family: 'Barlow Light';
+  src: url('./fonts/Barlow-Light.ttf') format(truetype);
 }

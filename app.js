@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const postRouter = require('./routes/postRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 const app = express();
 
@@ -10,8 +11,8 @@ if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
 console.log(`You are in the ${process.env.NODE_ENV} enviroment!`);
 
-app.use('/api/v1/posts', postRouter);
-
+app.use('/api/posts', postRouter);
+app.use('/api/users', userRoutes);
 app.all('*', (req, res, next) => {
   res.status(400).json({
     status: 'fail',

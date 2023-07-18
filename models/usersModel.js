@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const userSchema = new mongoose.Schema({
   firstName: {
@@ -27,6 +28,12 @@ const userSchema = new mongoose.Schema({
     required: [true, 'A password is required'],
     minlength: 8,
     select: false,
+  },
+  role: {
+    type: String,
+    required: [true, 'A user requiresa role'],
+    enum: ['admin', 'reader'],
+    default: 'reader',
   },
   passwordConfirm: {
     type: String,

@@ -1,20 +1,22 @@
 .header {
-  text-align: center;
-  background-color: var(--oxford-blue);
+  text-align: right;
+  background-color: var(--blue);
   font-family: 'Albert Sans', sans-serif;
+  position: relative;
+  top: 0;
 }
 
 .header--title {
-  color: var(--platinum);
-  padding: 20px 0;
+  color: var(--white);
+  padding: 20px;
 }
 
 .header--link-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   gap: 30px;
-  padding: 2px 0px;
-  background-color: var(--orange);
+  padding: 8px 0px;
+  background-color: var(--yellow);
 }
 
 .heading--bullet {
@@ -24,9 +26,12 @@
 .heading--link {
   text-decoration: none;
   color: var(--white);
+  border: 0.5px solid white;
+  border-radius: 4px;
+  padding: 2px 4px;
 }
 
 .heading--link:hover {
-  text-decoration: underline;
-  color: var(--oxford-blue);
+  border: 0.5px solid var(--blue);
+  color: var(--blue);
 }

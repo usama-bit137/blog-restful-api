@@ -47,5 +47,20 @@ const userSchema = new mongoose.Schema({
   },
 });
 
+// Some mongoose middleware to encrypt the password:
+
+userSchema.pre('save', async function (next) {
+  // if the password is changed, move to the next bit;
+  if (!this.isModified) return next();
+
+  this.password = await bcrypt.hash(this.password, 12);
+  // check if this works!
+
+  // we don't need the passwordConfirmation once it has been validated
+  this.passwordConfirm = undefined;
+  next();
+});
+
 const Users = mongoose.model('Users', userSchema);
+
 module.exports = Users;

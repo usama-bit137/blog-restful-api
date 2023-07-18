@@ -2,7 +2,7 @@ import '../styles/Header.css';
 export default function Header() {
   return (
     <div className="header sticky">
-      <h1 className="header--title">The Llama Zone </h1>
+      <h1 className="header--title">Quest of the Llama </h1>
       <ul className="header--link-container">
         <Link name="Home" />
         <Link name="About" />

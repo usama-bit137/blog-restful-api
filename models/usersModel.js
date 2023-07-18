@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 
 const userSchema = new mongoose.Schema({
   firstName: {
@@ -48,7 +47,6 @@ const userSchema = new mongoose.Schema({
 });
 
 // Some mongoose middleware to encrypt the password:
-
 userSchema.pre('save', async function (next) {
   // if the password is changed, move to the next bit;
   if (!this.isModified) return next();
@@ -60,6 +58,13 @@ userSchema.pre('save', async function (next) {
   this.passwordConfirm = undefined;
   next();
 });
+
+userSchema.methods.correctPassword = async function (
+  candidatePassword,
+  userPassword
+) {
+  return bcrypt.compare(candidatePassword, userPassword);
+};
 
 const Users = mongoose.model('Users', userSchema);
 

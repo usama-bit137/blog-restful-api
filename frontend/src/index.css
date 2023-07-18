@@ -1,14 +1,19 @@
 :root {
-  --black: #000;
-  --oxford-blue: #14213d;
-  --orange: #fca311;
-  --platinum: #e5e5e5;
-  --white: #fff;
+  --blue: #001524;
+  --turquoise: #15616d;
+  --white: #fdfffc;
+  --red: #c1292e;
+  --yellow: #e3b23c;
 }
 
 * {
   margin: 0;
   padding: 0;
+}
+
+body {
+  background-color: var(--white);
+  margin: 0;
 }
 
 code {

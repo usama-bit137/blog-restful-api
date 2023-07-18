@@ -44,6 +44,10 @@ const userSchema = new mongoose.Schema({
       message: 'Passwords do not match!',
     },
   },
+  passwordChangedAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 // Some mongoose middleware to encrypt the password:
@@ -64,6 +68,22 @@ userSchema.methods.correctPassword = async function (
   userPassword
 ) {
   return bcrypt.compare(candidatePassword, userPassword);
+};
+
+// create another model middleware which checks if user has changed pw
+// after token generated:
+
+userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
+  if (this.passwordChangedAt) {
+    const changedTimestamp = parseInt(
+      this.passwordChangedAt.getTime() / 1000,
+      10
+    );
+    console.log(changedTimestamp, JWTTimestamp);
+    return JWTTimestamp < changedTimestamp;
+  }
+  // False means NOT changed:
+  return false;
 };
 
 const Users = mongoose.model('Users', userSchema);

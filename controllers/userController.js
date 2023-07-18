@@ -10,6 +10,13 @@ exports.getAllUsers = async (req, res, next) => {
   });
 };
 
+exports.getUser = (req, res) => {
+  res.status(500).json({
+    status: 'error',
+    message: 'This route is not yet defined',
+  });
+};
+
 exports.createUser = async (req, res, next) => {
   const user = await User.create(req.body);
 
@@ -18,5 +25,19 @@ exports.createUser = async (req, res, next) => {
     data: {
       user,
     },
+  });
+};
+
+exports.updateUser = (req, res) => {
+  res.status(500).json({
+    status: 'error',
+    message: 'This route is not yet defined',
+  });
+};
+
+exports.deleteUser = (req, res) => {
+  res.status(500).json({
+    status: 'error',
+    message: 'This route is not yet defined',
   });
 };

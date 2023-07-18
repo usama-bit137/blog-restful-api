@@ -16,7 +16,7 @@ export default function App() {
 
   function BlogsFurnish() {
     return allBlogs.map((item) => (
-      <Blog title={item.title} bodyText={item.bodyText} />
+      <Blog title={item.title} bodyText={item.bodyText} key={item._id} />
     ));
   }
 

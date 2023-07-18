@@ -12,7 +12,7 @@ export default function Blog({ title, bodyText }) {
   }
 
   return (
-    <div class="blog--container">
+    <div className="blog--container">
       <h1 className="blog--title">{title}</h1>
       <a className="blog--preview" href="/">
         {bodyText}

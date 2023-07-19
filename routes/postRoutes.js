@@ -13,7 +13,11 @@ router
   .route('/:id')
   .get(controller.getPost)
   .patch(authController.protect, controller.updatePost)
-  .delete(authController.protect, controller.deletePost);
+  .delete(
+    authController.protect,
+    authController.restrictTo('admin'),
+    controller.deletePost
+  );
 
 // restrictTo on patch and delete,
 module.exports = router;

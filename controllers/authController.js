@@ -71,17 +71,34 @@ exports.protect = async (req, res, next) => {
   console.log(decoded);
 
   // 3) Check if the user still exists:
-  const freshUser = await User.findById(decoded.id);
-  if (!freshUser)
+  const currentUser = await User.findById(decoded.id);
+  if (!currentUser)
     return next(
       new AppError('The user belonging to this token no longer exists.', 401)
     );
 
   // 4) Check if user changed pw after token is issued:
-  if (freshUser.changedPasswordAfter(decoded.iat)) {
+  if (currentUser.changedPasswordAfter(decoded.iat)) {
     return next(
       new AppError('User recently changed password! Please login again', 401)
     );
   }
+
+  req.user = currentUser;
+
   next();
 };
+
+exports.restrictTo =
+  (...roles) =>
+  (req, res, next) => {
+    if (!roles.includes(req.user.role))
+      return next(
+        new AppError(
+          'You do not have the correct permissions to perform this action',
+          403
+        )
+      );
+
+    next();
+  };

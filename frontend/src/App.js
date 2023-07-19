@@ -15,8 +15,6 @@ export default function App() {
     fetchBlogs();
   }, []);
 
-  console.log(allBlogs);
-
   function BlogsFurnish() {
     return allBlogs.map((item) => (
       <Blog

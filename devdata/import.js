@@ -4,12 +4,9 @@ const dotenv = require('dotenv');
 
 const Posts = require('../models/postModel');
 
-dotenv.config({ path: `${__dirname}/../config.env` });
+dotenv.config({ path: `${__dirname}/../../config.env` });
 const { DATABASE, DATABASE_PASSWORD } = process.env;
-const DB = process.env.DATABASE.replace(
-  '<PASSWORD>',
-  process.env.DATABASE_PASSWORD
-);
+const DB = DATABASE.replace('<PASSWORD>', DATABASE_PASSWORD);
 
 mongoose
   .connect(DB, {

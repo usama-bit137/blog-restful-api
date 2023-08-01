@@ -1,0 +1,40 @@
+.blog--container {
+  margin: 20px auto;
+  padding: 30px 10px;
+  width: 70%;
+  border-bottom: 1px solid var(--yellow);
+}
+
+.blog--title {
+  color: var(--blue);
+  font-family: 'Albert Sans', sans-serif;
+  letter-spacing: 2px;
+}
+
+.blog--preview {
+  text-decoration: none;
+  color: var(--turquoise);
+  font-family: 'Barlow Light', sans-serif;
+  letter-spacing: 1.5px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 0.5fr 1fr;
+  margin-top: 10px;
+  font-family: 'Barlow Light', sans-serif;
+  color: var(--oxford-blue);
+  /* border: 1px solid red; */
+}
+
+.likes {
+  font-size: 18px;
+  padding: 0;
+}
+
+.heart {
+  vertical-align: middle;
+  margin-right: 5px;
+  /* border: 1px solid var(--turquoise); */
+  border-radius: 3px;
+}

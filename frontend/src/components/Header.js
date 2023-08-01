@@ -1,23 +1,9 @@
 import '../styles/Header.css';
-export default function Header() {
+export default function Header({ children, title }) {
   return (
     <div className="header sticky">
-      <h1 className="header--title">Quest of the Llama </h1>
-      <ul className="header--link-container">
-        <Link name="Home" />
-        <Link name="About" />
-        <Link name="Contact Me" />
-      </ul>
+      <h1 className="header--title">{title}</h1>
+      <ul className="header--link-container">{children}</ul>
     </div>
-  );
-}
-
-function Link(props) {
-  return (
-    <li className="heading--bullet">
-      <a href="/" className="heading--link">
-        {props.name}
-      </a>
-    </li>
   );
 }

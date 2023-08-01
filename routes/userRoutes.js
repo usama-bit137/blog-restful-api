@@ -1,16 +1,26 @@
 const express = require('express');
-const controller = require('../controllers/userController');
+const userController = require('../controllers/userController');
 const authController = require('../controllers/authController');
 
 const router = express.Router();
-router.post('/signup', authController.signup);
-router.get('/login', authController.login);
 
-router.route('/').get(controller.getAllUsers).post(controller.createUser);
+// SIGNUP AND LOGIN
+router.post('/signup', authController.signup);
+router.post('/login', authController.login);
+
+// PASSWORD RESET FUNCTIONALITY:
+// router.post('/forgotPassword', authController.forgotPassword);
+// router.post('/changePassword', authController.changePassword)
+
+// LOGGED IN USER CHANGES PASSWORD
+// router.patch('updateMyPassword', authController.protect, authController.updatePassword)
+
+// ADMIN ROUTES
+router.route('/').get(userController.getAllUsers);
 
 router
   .route('/:id')
-  .get(controller.getUser)
-  .patch(controller.updateUser)
-  .delete(controller.deleteUser);
+  .get(userController.getUser)
+  .delete(userController.deleteUser);
+
 module.exports = router;

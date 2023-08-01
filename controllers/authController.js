@@ -1,5 +1,6 @@
 const { promisify } = require('util');
 const jwt = require('jsonwebtoken');
+const catchAsync = require('../utils/catchAsync');
 const User = require('../models/usersModel');
 const AppError = require('../utils/AppError');
 
@@ -8,7 +9,7 @@ const signToken = (id) =>
     expiresIn: process.env.JWT_EXPIRES_IN,
   });
 
-exports.signup = async (req, res, next) => {
+exports.signup = catchAsync(async (req, res, next) => {
   const { firstName, lastName, username, email, password, passwordConfirm } =
     req.body;
   const newUser = await User.create({
@@ -29,9 +30,9 @@ exports.signup = async (req, res, next) => {
       user: newUser,
     },
   });
-};
+});
 
-exports.login = async (req, res, next) => {
+exports.login = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password)
     return next(new AppError('Please provide email and password', 400));
@@ -47,9 +48,9 @@ exports.login = async (req, res, next) => {
     status: 'success',
     token,
   });
-};
+});
 
-exports.protect = async (req, res, next) => {
+exports.protect = catchAsync(async (req, res, next) => {
   // 1) Get the token and check it's there:
   let token;
   if (
@@ -87,7 +88,7 @@ exports.protect = async (req, res, next) => {
   req.user = currentUser;
 
   next();
-};
+});
 
 exports.restrictTo =
   (...roles) =>
@@ -102,3 +103,13 @@ exports.restrictTo =
 
     next();
   };
+
+exports.forgotPassword = catchAsync(async (req, res, next) => {
+  // user provides email, we find the email in the database,
+  const user = await User.findOne({ email: req.body.email });
+  if (!user)
+    return next(new AppError('There is no user with this email address', 404));
+
+  // const resetToken = user.createPasswordResetToken();
+  // await user.save({ validateBeforeSave: false });
+});

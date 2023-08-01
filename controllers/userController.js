@@ -1,43 +1,14 @@
 const User = require('../models/usersModel');
+const factory = require('./handlerFactory');
 
-exports.getAllUsers = async (req, res, next) => {
-  const users = await User.find();
-  res.status(200).json({
-    status: 'success',
-    data: {
-      users,
-    },
-  });
-};
+exports.getAllUsers = factory.getAll(User);
+exports.getUser = factory.getOne(User);
+exports.deleteUser = factory.deleteOne(User);
 
-exports.getUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined',
-  });
-};
+// ADMIN SHOULD NOT BE ABLE TO CREATE A USER
+// USE /signup route.
+// exports.createUser = factory.createOne(User);
 
-exports.createUser = async (req, res, next) => {
-  const user = await User.create(req.body);
-
-  res.status(201).json({
-    status: 'success',
-    data: {
-      user,
-    },
-  });
-};
-
-exports.updateUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined',
-  });
-};
-
-exports.deleteUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined',
-  });
-};
+// User should update password from the password update
+// functionality.
+// exports.updateUser = factory.updateOne(User);

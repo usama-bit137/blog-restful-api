@@ -1,15 +1,18 @@
 extends base
-
 block content
-  .blog--container
-    h1.blog--title Come Nerevar
-    a.blog--preview(href="/") Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus dapibus diam, a vestibulum turpis ultricies at. Phasellus tortor ligula, blandit et facilisis non, congue eu lacus. Mauris id odio id est tristique consectetur vitae et libero. Curabitur eget eros a nunc pretium finibus at a nisl. Nam at euismod lectus, in feugiat augue. Proin sagittis vitae dolor sit amet faucibus. Integer condimentum sem a massa commodo scelerisque. Quisque a viverra ipsum. Ut sed scelerisque sapien. Integer congue laoreet nibh, eu laoreet neque. Suspendisse porttitor pulvinar sagittis. Maecenas venenatis, ante vitae pretium ultricies, tortor metus fermentum felis, nec suscipit dolor nunc quis velit. Ut ut justo laoreet, hendrerit nunc et, semper dui. Maecenas blandit eleifend sagittis. Cras sit amet hendrerit augue.
-    .grid--container
-      .likes
-        img.heart(src="/icons/heart-inactive.png" width="30px" alt="You liked this post!")
-    .comments
-      img.comment(src='/icons/comment.png' width="30px")
-      p 25 
-    .date
-      p=Date().toLocaleString()
-
+  a.new-link(href="/new")
+    img#new-link--icon(src="/icons/new.png" width="30px")
+  .all-blogs
+    each post in posts
+      .blog--container
+        h1.blog--title= post.title
+        a(href=`/${post._id}`).blog--preview= post.bodyText.split(' ').slice(0, 50).join(' ')
+        div.grid-container
+          div.likes
+            img.heart(src="/icons/heart-inactive.png" width="20px" alt="You liked this post!")
+          div.comment
+            img.comment-img(src='/icons/comment.png' width="20px")
+            p.comment-count=post.comments.length
+          div.date
+            img.date-img(src='/icons/posted.png' width="20px")
+            p.date-posted=post.creationDate.toLocaleDateString()

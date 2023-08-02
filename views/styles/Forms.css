@@ -1,0 +1,42 @@
+.login--form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 50px;
+  gap: 5px;
+  /* border: 1px solid red; */
+}
+
+input,
+textarea {
+  width: 75vw;
+  max-width: 500px;
+  height: 25px;
+  margin: auto;
+  border: 1px solid var(--blue);
+  border-radius: 4px;
+  text-indent: 10px;
+  font-family: 'Barlow Light';
+  font-weight: 800;
+}
+
+textarea {
+  height: 45vh;
+  padding: 10px 0;
+}
+
+.login--heading {
+  margin: 10px auto;
+}
+
+#submit {
+  width: 100px;
+  margin: auto;
+  height: 30px;
+  font-family: 'Albert Sans';
+  font-weight: 800;
+  background-color: var(--yellow);
+  border: 0;
+  border-radius: 4px;
+  color: var(--white);
+}

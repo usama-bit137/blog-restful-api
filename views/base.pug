@@ -4,14 +4,18 @@ html
     meta(charset='UTF-8')
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@600&display=swap" rel="stylesheet")
     link(rel="stylesheet" href="/styles/index.css")
     link(rel="stylesheet" href="/styles/Header.css")
     link(rel="stylesheet" href="/styles/Blog.css")
     link(rel="stylesheet" href="/styles/Footer.css")
+    link(rel="stylesheet" href="/styles/Forms.css")
+
     title Usama's Blog | #{title}
   body
     include _header
 
     block content
+      h1 Home
 
     include _footer

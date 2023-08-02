@@ -13,7 +13,7 @@
 
 .header--link-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   gap: 30px;
   padding: 8px 0px;
   background-color: var(--yellow);

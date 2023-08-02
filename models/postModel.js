@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const slugify = require('slugify');
 
 const postSchema = new mongoose.Schema(
   {
@@ -23,6 +24,9 @@ const postSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    slug: {
+      type: String,
+    },
     comments: [
       {
         username: { type: String },
@@ -44,6 +48,11 @@ const postSchema = new mongoose.Schema(
     toObject: { virtuals: true },
   }
 );
+
+postSchema.pre('save', function (next) {
+  this.slug = slugify(this.title, { lower: true });
+  next();
+});
 
 const Post = mongoose.model('Post', postSchema);
 

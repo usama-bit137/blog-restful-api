@@ -1,26 +1,17 @@
 const express = require('express');
-const Post = require('../models/postModel');
 const factory = require('../controllers/viewsFactory');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.status(200).render('base');
-});
-
-router.get('/all', async (req, res) => {
-  const posts = await Post.find();
-  res.status(200).render('blogs', {
-    title: 'All Posts',
-    posts,
-  });
-});
+router.get('/posts', factory.getAllPosts);
+router.get('/posts/:slug', factory.getPostBySlug);
 
 // Cleaner:
-router.get('/home', factory.getPage('Home'));
+router.get('/', factory.getPage('Homepage', 'base'));
 router.get('/about', factory.getPage('About'));
 router.get('/contact', factory.getPage('Contact'));
-router.get('/login', factory.getPage('Login'));
-router.get('/signup', factory.getPage('Signup'));
-router.get('/new', factory.getPage('New'));
+router.get('/login', factory.getPage('Log in to your account', 'login'));
+router.get('/signup', factory.getPage('Sign up for a new account', 'signup'));
+router.get('/new', factory.getPage('New post', 'new'));
+
 module.exports = router;

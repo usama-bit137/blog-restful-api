@@ -8,6 +8,7 @@ html
     link(rel="stylesheet" href="/styles/index.css")
     link(rel="stylesheet" href="/styles/Header.css")
     link(rel="stylesheet" href="/styles/Blog.css")
+    link(rel="stylesheet" href="/styles/infopage.css")
     link(rel="stylesheet" href="/styles/Footer.css")
     link(rel="stylesheet" href="/styles/Forms.css")
 
@@ -16,6 +17,9 @@ html
     include _header
 
     block content
-      h1 Home
+      main.content-main
+        h1.main-title Home
+        p.body-text 
 
     include _footer
+    script(src="/js/bundle.js")

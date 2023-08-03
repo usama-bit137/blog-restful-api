@@ -6,7 +6,7 @@ block content
     each post in posts
       .blog--container
         h1.blog--title= post.title
-        a(href=`/${post._id}`).blog--preview= post.bodyText.split(' ').slice(0, 50).join(' ')
+        a(href=`/posts/${post.slug}`).blog--preview= post.bodyText.split(' ').slice(0, 50).join(' ')
         div.grid-container
           div.likes
             img.heart(src="/icons/heart-inactive.png" width="20px" alt="You liked this post!")

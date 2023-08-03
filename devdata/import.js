@@ -4,9 +4,11 @@ const dotenv = require('dotenv');
 
 const Posts = require('../models/postModel');
 
-dotenv.config({ path: `${__dirname}/../../config.env` });
-const { DATABASE, DATABASE_PASSWORD } = process.env;
-const DB = DATABASE.replace('<PASSWORD>', DATABASE_PASSWORD);
+dotenv.config({ path: `${__dirname}/../config.env` });
+const DB = process.env.DATABASE.replace(
+  '<PASSWORD>',
+  process.env.DATABASE_PASSWORD
+);
 
 mongoose
   .connect(DB, {
@@ -24,7 +26,7 @@ const posts = JSON.parse(fs.readFileSync(`${__dirname}/posts.json`, 'utf-8'));
 const importData = async () => {
   try {
     await Posts.create(posts);
-    console.log('Posts successfully loaded ✉️');
+    console.log('Posts successfully delivered ✉️');
     process.exit();
   } catch (err) {
     console.log(err);

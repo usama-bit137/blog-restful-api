@@ -1,0 +1,45 @@
+:root {
+  --blue: #001524;
+  --turquoise: #15616d;
+  --white: #fdfffc;
+  --red: #c1292e;
+  --yellow: #e3b23c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Albert Sans';
+}
+
+body {
+  background-color: var(--white);
+  margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: 'Barlow Light';
+  src: url('/fonts/Barlow-Light.ttf') format(truetype);
+}
+
+p,
+div,
+span,
+a {
+  font-family: 'Barlow Light';
+  font-weight: 600;
+  font-size: 1em;
+}

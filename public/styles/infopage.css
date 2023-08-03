@@ -1,0 +1,39 @@
+.content-main {
+  padding: 50px;
+}
+
+.main-title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.body-text,
+.page {
+  border: 1px solid red;
+}
+
+.post {
+  border-bottom: 1px solid var(--yellow);
+  padding-bottom: 50px;
+  letter-spacing: 2px;
+}
+
+.post > h3 {
+  padding: 10px 0;
+}
+
+/* COMMENTS */
+.comments-title {
+  margin-top: 10px;
+}
+
+.comments > li {
+  list-style-type: none;
+  margin-top: 20px;
+}
+
+.author {
+  font-family: 'Albert Sans';
+  font-weight: 800;
+  justify-content: right;
+}

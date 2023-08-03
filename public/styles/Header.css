@@ -1,0 +1,37 @@
+.header {
+  text-align: right;
+  background-color: var(--blue);
+  font-family: 'Albert Sans', sans-serif;
+  position: relative;
+  top: 0;
+}
+
+.header--title {
+  color: var(--white);
+  padding: 20px;
+}
+
+.header--link-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 8px 0px;
+  background-color: var(--yellow);
+}
+
+.heading--bullet {
+  list-style-type: none;
+}
+
+.heading--link {
+  text-decoration: none;
+  color: var(--white);
+  border: 0.5px solid white;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+.heading--link:hover {
+  border: 0.5px solid var(--blue);
+  color: var(--blue);
+}

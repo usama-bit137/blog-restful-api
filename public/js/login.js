@@ -1,15 +1,33 @@
+/* eslint-disable no-restricted-globals */
 import axios from 'axios';
+import showAlert from './alert';
 
-const login = async (email, password) => {
+export const login = async (email, password) => {
   try {
-    const res = await axios.post('http://127.0.0.1:3001/api/users/login', {
+    const res = await axios.post('/api/users/login', {
       email,
       password,
     });
-    console.log({ email, password });
+    if (res.data.status === 'success') {
+      showAlert('success', 'Logged in successfully');
+      window.setTimeout(() => {
+        location.assign('/');
+      }, 1500);
+    }
   } catch (err) {
-    console.log(err.response.data);
+    showAlert('error', err.response.data.message);
   }
 };
 
-export default login;
+export const logout = async () => {
+  try {
+    axios.get('/api/users/logout').then((res) => {
+      if (res.data.message === 'success') {
+        location.reload(true);
+      }
+    });
+  } catch (err) {
+    console.log(err.response);
+    showAlert('error', 'Error logging out. Try again!');
+  }
+};

@@ -1,15 +1,11 @@
 .content-main {
   padding: 50px;
+  background-color: var(--greyest);
 }
 
 .main-title {
   text-align: center;
   margin-bottom: 10px;
-}
-
-.body-text,
-.page {
-  border: 1px solid red;
 }
 
 .post {

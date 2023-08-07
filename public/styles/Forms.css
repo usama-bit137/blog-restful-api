@@ -4,7 +4,6 @@
   margin: auto;
   padding: 50px;
   gap: 5px;
-  /* border: 1px solid red; */
 }
 
 input,
@@ -13,11 +12,12 @@ textarea {
   max-width: 500px;
   height: 25px;
   margin: auto;
-  border: 1px solid var(--blue);
+  border: 0;
   border-radius: 4px;
   text-indent: 10px;
   font-family: 'Barlow Light';
   font-weight: 800;
+  background-color: var(--grey);
 }
 
 textarea {
@@ -27,6 +27,7 @@ textarea {
 
 .login--heading {
   margin: 10px auto;
+  color: var(--greyish);
 }
 
 #submit {

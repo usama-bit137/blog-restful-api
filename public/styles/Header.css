@@ -1,13 +1,22 @@
 .header {
   text-align: right;
-  background-color: var(--blue);
+  background-image: linear-gradient(
+    to top left,
+    var(--grey),
+    var(--greyer),
+    var(--greyest)
+  );
   font-family: 'Albert Sans', sans-serif;
   position: relative;
   top: 0;
 }
 
+.header--name {
+  color: var(--black);
+}
+
 .header--title {
-  color: var(--white);
+  color: var(--black);
   padding: 20px;
 }
 
@@ -16,7 +25,7 @@
   justify-content: center;
   gap: 30px;
   padding: 8px 0px;
-  background-color: var(--yellow);
+  background-color: var(--grey);
 }
 
 .heading--bullet {
@@ -25,13 +34,13 @@
 
 .heading--link {
   text-decoration: none;
-  color: var(--white);
-  border: 0.5px solid white;
+  color: var(--black);
   border-radius: 4px;
   padding: 2px 4px;
 }
 
 .heading--link:hover {
-  border: 0.5px solid var(--blue);
-  color: var(--blue);
+  border: 0.5px solid var(--red);
+  color: var(--red);
+  box-shadow: 0 10px 10px 0 var(--greyish);
 }

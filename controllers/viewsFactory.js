@@ -19,7 +19,7 @@ exports.getAllPosts = catchAsync(async (req, res) => {
   });
 });
 
-exports.getPostBySlug = catchAsync(async (req, res, next) => {
+exports.getPost = catchAsync(async (req, res, next) => {
   const post = await Post.findOne({ slug: req.params.slug });
   if (!post)
     return next(new AppError('The resource you requested does not exist', 404));

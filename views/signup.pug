@@ -1,0 +1,11 @@
+extends base
+block content
+  form.login--form
+    h1.login--heading Sign Up
+    input#first-name(type='text' placeholder="Firstname" name="firstName" required)
+    input#last-name(type='text' placeholder="Surname" name="lastName" required)
+    input#username(type='text' placeholder="Username" name="username" required)
+    input#email(type='email'  placeholder="Email" name="email" required)
+    input#password(type='password' placeholder="Password" name="password" required)
+    input#passwordConfirm(type='password' placeholder="Confirm Password" name="passwordConfirm" required)
+    button#submit Create Account

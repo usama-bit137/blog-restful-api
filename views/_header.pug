@@ -1,6 +1,8 @@
-div.header.sticky
+div.header.sticky  
   h1.header--title Quest of the Llama
   ul.header--link-container 
+    if user
+      li.heading--bullet=user.username
     li.heading--bullet
       a.heading--link(href="/") Home
     li.heading--bullet
@@ -9,6 +11,12 @@ div.header.sticky
       a.heading--link(href='/about') About
     li.heading--bullet
       a.heading--link(href='/contact') Contact
-    li.heading--bullet
-      a.heading--link(href='/login') Login
+    if !user
+      li.heading--bullet
+        a.heading--link#login(href='/login') Login
+      li.heading--bullet
+        a.heading--link#signup(href='/signup') Signup
+    else
+      li.heading--bullet
+        a.heading--link#logout(href='/') Logout
 

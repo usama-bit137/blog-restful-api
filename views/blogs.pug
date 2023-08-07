@@ -1,12 +1,16 @@
 extends base
 block content
-  a.new-link(href="/new")
-    img#new-link--icon(src="/icons/new.png" width="30px")
+  //- conditional rendering to show add button for
+  //- only admins. New post route protected
+  if user.role ==='admin'
+    button
+      a.new-link(href="/posts/new")
+        img#new-link--icon(src="/icons/new.png" width="30px")
   .all-blogs
     each post in posts
       .blog--container
-        h1.blog--title= post.title
-        a(href=`/posts/${post.slug}`).blog--preview= post.bodyText.split(' ').slice(0, 50).join(' ')
+        h1.blog--title: a(href=`/posts/${post.slug}`)= post.title
+        p.blog--preview= post.bodyText.split(' ').slice(0, 50).join(' ')
         div.grid-container
           div.likes
             img.heart(src="/icons/heart-inactive.png" width="20px" alt="You liked this post!")
@@ -16,3 +20,4 @@ block content
           div.date
             img.date-img(src='/icons/posted.png' width="20px")
             p.date-posted=post.creationDate.toLocaleDateString()
+  

@@ -1,26 +1,26 @@
 const express = require('express');
-const userController = require('../controllers/postController');
+const postController = require('../controllers/postController');
 const authController = require('../controllers/authController');
 
 const router = express.Router();
 
 router
   .route('/')
-  .get(userController.getAllPosts)
-  .post(authController.protect, userController.createPost);
+  .get(postController.getAllPosts)
+  .post(postController.createPost);
 
 router
   .route('/:id')
-  .get(userController.getPost)
+  .get(authController.protect, postController.getPost)
   .patch(
     authController.protect,
     authController.restrictTo('admin'),
-    userController.updatePost
+    postController.updatePost
   )
   .delete(
     authController.protect,
     authController.restrictTo('admin'),
-    userController.deletePost
+    postController.deletePost
   );
 
 // restrictTo on patch and delete,

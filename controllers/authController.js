@@ -53,11 +53,19 @@ exports.login = catchAsync(async (req, res, next) => {
 
   const user = await User.findOne({ email }).select('+password');
 
-  if (!user || !user.correctPassword(password, user.password))
-    return new AppError('Incorrect email or password');
+  if (!user || !(await user.correctPassword(password, user.password)))
+    return next(new AppError('Incorrect email or password'));
 
   createSendToken(user, 200, res);
 });
+
+exports.logout = (req, res, next) => {
+  res.cookie('jwt', 'loggedout', {
+    expires: new Date(Date.now() + 10 * 1000),
+    httpOnly: true,
+  });
+  res.status(200).json({ status: 'success' });
+};
 
 exports.protect = catchAsync(async (req, res, next) => {
   // 1) Get the token and check it's there:
@@ -68,6 +76,8 @@ exports.protect = catchAsync(async (req, res, next) => {
   ) {
     // eslint-disable-next-line prefer-destructuring
     token = req.headers.authorization.split(' ')[1];
+  } else if (req.cookies.jwt) {
+    token = req.cookies.jwt;
   }
 
   if (!token)
@@ -78,7 +88,6 @@ exports.protect = catchAsync(async (req, res, next) => {
   // 2) Verification token
 
   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
-  console.log(decoded);
 
   // 3) Check if the user still exists:
   const currentUser = await User.findById(decoded.id);
@@ -98,6 +107,37 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   next();
 });
+
+// Only for rendered pages
+exports.isLoggedIn = async (req, res, next) => {
+  // 1) Get the token and check it's there:
+  if (req.cookies.jwt) {
+    // verifies the token
+    try {
+      const decoded = await promisify(jwt.verify)(
+        req.cookies.jwt,
+        process.env.JWT_SECRET
+      );
+
+      // 3) Check if the user still exists:
+      const currentUser = await User.findById(decoded.id);
+      if (!currentUser) return next();
+
+      // 4) Check if user changed pw after token is issued:
+      if (currentUser.changedPasswordAfter(decoded.iat)) {
+        return next();
+      }
+
+      // There is a logged in user
+      res.locals.user = currentUser;
+
+      return next();
+    } catch (err) {
+      return next();
+    }
+  }
+  next();
+};
 
 exports.restrictTo =
   (...roles) =>

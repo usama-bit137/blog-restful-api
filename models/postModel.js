@@ -5,8 +5,7 @@ const postSchema = new mongoose.Schema(
   {
     author: {
       type: String,
-      default: 'Unknown',
-      required: [true, 'A post requires and author'],
+      default: 'usama-bit137',
     },
     title: {
       type: String,

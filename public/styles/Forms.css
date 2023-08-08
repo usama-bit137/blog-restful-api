@@ -1,4 +1,5 @@
-.login--form {
+.login--form,
+.new-post--form {
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -12,7 +13,7 @@ textarea {
   max-width: 500px;
   height: 25px;
   margin: auto;
-  border: 0;
+  border: 0.5px solid black;
   border-radius: 4px;
   text-indent: 10px;
   font-family: 'Barlow Light';
@@ -25,12 +26,14 @@ textarea {
   padding: 10px 0;
 }
 
-.login--heading {
+.login--heading,
+.new-post--heading {
   margin: 10px auto;
-  color: var(--greyish);
+  color: var(--black);
 }
 
-#submit {
+#submit,
+#submit-post {
   width: 100px;
   margin: auto;
   height: 30px;

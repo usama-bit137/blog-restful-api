@@ -22,7 +22,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Albert Sans';
+  font-family: 'Taviraj Bold';
 }
 
 body {
@@ -40,11 +40,27 @@ code {
   src: url('/fonts/Barlow-Light.ttf') format(truetype);
 }
 
+@font-face {
+  font-family: 'Taviraj Bold';
+  src: url('/fonts/Taviraj/Taviraj-Bold.ttf') format(truetype);
+}
+
+@font-face {
+  font-family: 'Taviraj Extra Light';
+  src: url('/fonts/Taviraj/Taviraj-ExtraLight.ttf') format(truetype);
+}
+
 p,
 div,
 span,
 a {
-  font-family: 'Barlow Light';
+  font-family: 'Taviraj Extra Light';
   font-weight: 600;
   font-size: 1em;
+}
+
+@media only screen and (max-width: 500px) {
+  .header--link-container {
+    display: none;
+  }
 }

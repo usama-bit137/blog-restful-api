@@ -2,67 +2,36 @@ body {
   background-color: var(--greyest);
 }
 
-#new-link--icon {
-  background: none;
-  border: 1px solid var(--blue);
-  border-radius: 4px;
-}
-
 .blog--container {
   background-color: var(--greyer);
-  box-shadow: 0 4px 8px 0 var(--grey), 0 6px 20px 0 var(--greyest);
   margin: 20px auto;
   padding: 30px;
   width: 70%;
-  border-bottom: 1px solid var(--yellow);
+  border-bottom: 1px solid var(--red);
+  position: relative;
 }
 
 .blog--title {
+  font-family: 'Taviraj Bold';
   color: var(--black);
   font-style: italic;
-  font-family: 'Albert Sans', sans-serif;
-  letter-spacing: 2px;
+  font-weight: bolder;
+  font-size: 2rem;
 }
 
 .blog--preview {
   text-decoration: none;
   color: var(--grayish);
-  font-family: 'Barlow Light', sans-serif;
   letter-spacing: 1.5px;
+  margin-bottom: 10px;
 }
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 0.25fr 0.5fr 0.75fr 1fr;
-  margin: 10px auto;
-  font-family: 'Barlow Light', sans-serif;
-  color: var(--oxford-blue);
-}
-
-.comment-img,
-.date-img {
-  float: left;
-  margin-right: 5px;
-}
-
-.comment-count,
-.date-posted {
-  font-weight: 800;
-  font-family: 'Albert Sans', sans-serif;
-}
-
-.likes {
-  font-size: 18px;
-  padding: 0;
-}
-
-.heart {
-  vertical-align: middle;
-  margin-right: 5px;
-  border-radius: 3px;
-}
-
 .date {
-  font-family: 'Albert Sans', sans-serif;
+  display: flex;
   color: var(--blue);
+  position: absolute;
+  right: 0%;
+}
+
+.date--img {
+  margin: auto 5px;
 }

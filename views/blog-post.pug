@@ -1,9 +1,10 @@
 extends base
 block content
   main.content-main
+
     h1.main-title=post.title
     !=post.bodyText
-    
+
     .comment-section 
       h2.comments-title Comments 
       ul.comments
@@ -11,4 +12,8 @@ block content
           li
             p.author= comment.username
             span.comment= comment.comment
-            
+    //- if user
+    //-   form#send--comment
+    //-     input#user(type='text' required)= user.username
+    //-     input#comment-text(type="text" required)
+    //-     button#submit comment

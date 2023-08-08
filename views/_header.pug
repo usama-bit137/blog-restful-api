@@ -1,14 +1,14 @@
 div.header.sticky  
-  h1.header--title Quest of the Llama
+  #title-container
+    span#logo--container: img#header--logo(src="/icons/favicon.svg" width="50px")
+    span#header--title: h1 Quest of the Llama
   ul.header--link-container 
     if user
-      li.heading--bullet=user.username
+      li.heading--bullet=`${user.username} | `
     li.heading--bullet
       a.heading--link(href="/") Home
     li.heading--bullet
       a.heading--link(href='/posts') Posts
-    li.heading--bullet
-      a.heading--link(href='/about') About
     li.heading--bullet
       a.heading--link(href='/contact') Contact
     if !user

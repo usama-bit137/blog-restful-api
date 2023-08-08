@@ -4,6 +4,7 @@ html
     meta(charset='UTF-8')
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="icon" type="image/x-icon" href="/icons/favicon.svg")
     link(href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@600&display=swap" rel="stylesheet")
     link(rel="stylesheet" href="/styles/index.css")
     link(rel="stylesheet" href="/styles/Header.css")
@@ -11,7 +12,6 @@ html
     link(rel="stylesheet" href="/styles/infopage.css")
     link(rel="stylesheet" href="/styles/Footer.css")
     link(rel="stylesheet" href="/styles/Forms.css")
-    link(rel="stylesheet" href="/styles/hamburger.css")
 
     title Usama's Blog | #{title}
   body
@@ -20,7 +20,13 @@ html
     block content
       main.content-main
         h1.main-title Home
-        p.body-text Come moon and star. Come and look upon the heart.
+        div.body-text 
+          span Hey! I'm Syed Usama Aqeel and this my personal blog. I am a Web Developer and Theoretical Physicist. I studied Quantum Fields and Fundamental Forces at Imperial College London. I am currently working on several projects, including a numerical methods project for Undergraduate Physicists called 
+          a(href="https://github.com/usama-bit137/NUMERUS") NUMERUS
+          span . The notes are written in Python and Jupyter Notebook. I am very excited to introduce this resource, as I am very passionate about teaching scientific computing.
+          p That's enough of the dry stuff... But a little bit more to introduce myself. In my spare time I like to play the guitar, run and rock-climbing. I have always been a bit of metal-head when it comes to music.
+          p I used to keep my blog on a Wordpress website, but decided that I preferred to create my own purpose-built blog to document all the cool stuff I do in my life... Like reading and doing maths and shit like that.
+          p I invite you sign up and drop a comment on any posts that catch your eye. I have a pretty diverse set of interests so I'm sure that there is plenty for everyone to enjoy.
+          p This blog is written in Pug, and a backend in NodeJS, ExpressJS and MongoDB and some protective software to keep your experience safe and secure and all that good stuff.
 
-    include _footer
     script(src="/js/bundle.js")

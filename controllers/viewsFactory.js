@@ -12,7 +12,7 @@ exports.getPage =
   };
 
 exports.getAllPosts = catchAsync(async (req, res) => {
-  const posts = await Post.find();
+  const posts = await Post.find().sort({ creationDate: -1 });
   res.status(200).render('blogs', {
     title: 'All Posts',
     posts,

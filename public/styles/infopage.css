@@ -1,7 +1,9 @@
 .content-main {
   width: 80vw;
-  margin: auto;
+  margin: 0 auto 50px;
   background-color: var(--greyest);
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .main-title {
@@ -42,4 +44,9 @@
 a {
   color: black;
   font-weight: bolder;
+}
+
+.paragraph {
+  margin: 10px 0;
+  text-indent: 20px;
 }

@@ -22,10 +22,7 @@ exports.getAllPosts = catchAsync(async (req, res) => {
 exports.getPost = catchAsync(async (req, res, next) => {
   if (req.params.slug !== 'new') {
     const post = await Post.findOne({ slug: req.params.slug });
-    if (!post)
-      return next(
-        new AppError('The resource you requested does not exist', 404)
-      );
+    if (!post) return next(new AppError('No post with that name', 404));
     res.status(200).render('blog-post', {
       title: `Post: ${post.title}`,
       post,

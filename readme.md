@@ -34,7 +34,7 @@ async function fetchBlogs() {
 }
 ```
 
-This will store the blogs in the `allBlogs` state which can be used further. However, we also require the use of the `useEffect` hook to perform the fetch:
+This will store the blogs in the `allBlogs` state which can be used further. However, we also require the use of the `useEffect` hook to manage side-effects during fetching:
 
 ```js
 // App.js React component

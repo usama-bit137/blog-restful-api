@@ -16,6 +16,7 @@ router.get('/logout', authController.logout);
 // router.patch('updateMyPassword', authController.protect, authController.updatePassword)
 
 // ADMIN ROUTES
+router.use(authController.protect, authController.restrictTo('admin'));
 router.route('/').get(userController.getAllUsers);
 
 router

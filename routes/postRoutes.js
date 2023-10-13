@@ -3,6 +3,7 @@ const postController = require('../controllers/postController');
 const authController = require('../controllers/authController');
 
 const router = express.Router();
+router.use(authController.protect, authController.restrictTo('admin'));
 
 router
   .route('/')
@@ -11,17 +12,9 @@ router
 
 router
   .route('/:id')
-  .get(authController.protect, postController.getPost)
-  .patch(
-    authController.protect,
-    authController.restrictTo('admin'),
-    postController.updatePost
-  )
-  .delete(
-    authController.protect,
-    authController.restrictTo('admin'),
-    postController.deletePost
-  );
+  .get(postController.getPost)
+  .patch(postController.updatePost)
+  .delete(postController.deletePost);
 
 // restrictTo on patch and delete,
 module.exports = router;
